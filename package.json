@@ -1,0 +1,15 @@
+{
+  "name": "django-react-email-marketing",
+  "version": "1.0.0",
+  "description": "Sistema de Email Marketing com Django e React",
+  "scripts": {
+    "start:backend": "cd backend && python manage.py runserver",
+    "start:frontend": "cd frontend && npm start",
+    "install:backend": "pip install django djangorestframework django-cors-headers",
+    "install:frontend": "cd frontend && npm install",
+    "migrate": "cd backend && python manage.py makemigrations && python manage.py migrate",
+    "process-emails": "cd backend && python manage.py processar_emails"
+  },
+  "author": "",
+  "license": "MIT"
+} 
