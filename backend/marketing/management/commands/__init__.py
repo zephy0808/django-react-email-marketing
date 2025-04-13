@@ -1,0 +1,1 @@
+# Arquivo vazio para que Django reconheça o diretório como um pacote 

@@ -134,6 +134,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = ''  # Substitua pelo seu email
 EMAIL_HOST_PASSWORD = ''  # Substitua pela sua senha
 
+# URL base para links de rastreamento
+BASE_URL = 'http://localhost:8000'
+
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 
