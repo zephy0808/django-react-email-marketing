@@ -12,7 +12,7 @@ Sistema para gerenciamento e envio de campanhas de email marketing.
 
 1. Clone o repositório:
 ```
-git clone https://github.com/seu-usuario/django-react-email-marketing.git
+git clone https://github.com/caiquemiranda/django-react-email-marketing.git
 cd django-react-email-marketing
 ```
 
