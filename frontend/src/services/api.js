@@ -62,6 +62,16 @@ const campanhaService = {
     enviarTeste: (id, email) => api.post(`/campanhas/${id}/enviar_teste/`, { email: email }),
     iniciarEnvio: (id) => api.post(`/campanhas/${id}/iniciar_envio/`),
     exportarRelatorio: (id) => api.get(`/campanhas/${id}/exportar_relatorio/`, { responseType: 'blob' }),
+    uploadAnexo: (campanhaId, arquivo) => {
+        const formData = new FormData();
+        formData.append('arquivo', arquivo);
+        formData.append('campanha', campanhaId);
+        return api.post('/anexos/', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    },
 };
 
 // Serviços de anexos

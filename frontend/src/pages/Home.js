@@ -108,7 +108,7 @@ const Home = () => {
                                 analisar o desempenho dos seus emails com relatórios detalhados.
                             </Card.Text>
                             <Card.Text>
-                                Utilize os campos dinâmicos como {{ nome }}, {{ sobrenome }} e {{ email }} para personalizar
+                                Utilize os campos dinâmicos como {'{'}{'{'}'nome'{'}'}{'}'},  {'{'}{'{'}'sobrenome'{'}'}{'}'}  e  {'{'}{'{'}'email'{'}'}{'}'} para personalizar
                                 suas mensagens para cada destinatário.
                             </Card.Text>
                         </Card.Body>

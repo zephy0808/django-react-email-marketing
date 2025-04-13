@@ -229,7 +229,7 @@ const NovaCampanha = () => {
                                     }}
                                 />
                                 <Form.Text className="text-muted mt-2 d-block">
-                                    Use {{ nome }}, {{ sobrenome }} e {{ email }} para personalizar o conteúdo.
+                                    Use {'{'}{'{'}'nome'{'}'}{'}'},  {'{'}{'{'}'sobrenome'{'}'}{'}'}  e  {'{'}{'{'}'email'{'}'}{'}'} para personalizar o conteúdo.
                                 </Form.Text>
                             </Form.Group>
 
