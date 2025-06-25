@@ -1,109 +1,174 @@
-# Sistema de Email Marketing
+# Django React Email Marketing System
 
-Sistema para gerenciamento e envio de campanhas de email marketing.
+Email marketing management and campaign sending system built with Django and React.
 
-## Requisitos
+## Requirements
 
 - Python 3.8+
 - Django 4.2+
-- Biblioteca Django Rest Framework
+- Django Rest Framework
+- Node.js 14+
+- React 18+
 
-## Instalação
+## Installation
 
-1. Clone o repositório:
-```
-git clone https://github.com/caiquemiranda/django-react-email-marketing.git
+### Backend Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/zephy0808/django-react-email-marketing.git
 cd django-react-email-marketing
 ```
 
-2. Instale as dependências:
-```
+2. Install Python dependencies:
+```bash
 pip install django djangorestframework django-cors-headers
 ```
 
-3. Configure as credenciais de email no arquivo `backend/email_app/settings.py`:
+3. Configure email credentials in `backend/email_app/settings.py`:
 ```python
-EMAIL_HOST = 'seu.servidor.smtp.com'
+EMAIL_HOST = 'your.smtp.server.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'seu-email@exemplo.com'
-EMAIL_HOST_PASSWORD = 'sua-senha'
+EMAIL_HOST_USER = 'your-email@example.com'
+EMAIL_HOST_PASSWORD = 'your-password'
 ```
 
-4. Execute as migrações do banco de dados:
-```
+4. Run database migrations:
+```bash
 cd backend
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-5. Crie um superusuário para acessar o painel administrativo:
-```
+5. Create a superuser to access the admin panel:
+```bash
 python manage.py createsuperuser
 ```
 
-6. Inicie o servidor:
-```
+6. Start the Django development server:
+```bash
 python manage.py runserver
 ```
 
-## Funcionalidades
+### Frontend Setup
 
-### 1. Gerenciamento de Lista de Emails
-- Importação de contatos por CSV
-- Cadastro manual de contatos
-- Organização por grupos
-
-### 2. Criação de Emails Personalizados
-- Editor com campos dinâmicos: `{{nome}}`, `{{sobrenome}}`, `{{email}}`
-- Suporte para imagens como anexos
-
-### 3. Agendamento e Envio de Emails
-- Agendamento para data e hora específicas
-- Segmentação por grupos de clientes
-- Visualização prévia antes do envio
-
-### 4. Relatórios e Estatísticas
-- Taxa de abertura, cliques e respostas
-- Exportação de relatórios em CSV
-
-## Envio de Emails Agendados
-
-Para processar emails agendados, execute o comando:
+1. Navigate to the frontend directory:
+```bash
+cd frontend
 ```
+
+2. Install Node.js dependencies:
+```bash
+npm install
+```
+
+3. Start the React development server:
+```bash
+npm start
+```
+
+## Features
+
+### 1. Email List Management
+- Import contacts via CSV
+- Manual contact registration
+- Organization by groups
+
+### 2. Custom Email Creation
+- Editor with dynamic fields: `{{name}}`, `{{lastname}}`, `{{email}}`
+- Support for images as attachments
+
+### 3. Email Scheduling and Sending
+- Schedule for specific date and time
+- Segmentation by customer groups
+- Preview before sending
+
+### 4. Reports and Analytics
+- Open rates, clicks, and responses
+- Export reports to CSV
+
+## Scheduled Email Processing
+
+To process scheduled emails, run the command:
+```bash
 python manage.py processar_emails
 ```
 
-Este comando pode ser configurado para execução periódica utilizando cron ou agendador de tarefas do sistema.
+This command can be configured for periodic execution using cron or system task scheduler.
 
-## Acesso ao Sistema
+## System Access
 
-- Painel administrativo: http://localhost:8000/admin/
+- Admin panel: http://localhost:8000/admin/
 - API: http://localhost:8000/api/
+- React frontend: http://localhost:3000/
 
-## Exemplo de Uso da API
+## API Usage Examples
 
-### Listar todos os clientes
+### List all customers
 ```
 GET /api/clientes/
 ```
 
-### Criar uma nova campanha
+### Create a new campaign
 ```
 POST /api/campanhas/
 {
-  "titulo": "Promoção de Verão",
-  "assunto": "Ofertas Especiais para {{nome}}",
-  "corpo": "Olá {{nome}} {{sobrenome}}, aproveite nossas promoções...",
+  "titulo": "Summer Promotion",
+  "assunto": "Special Offers for {{name}}",
+  "corpo": "Hello {{name}} {{lastname}}, take advantage of our promotions...",
   "grupos": [1, 2],
   "todos_clientes": false
 }
 ```
 
-### Agendar uma campanha
+### Schedule a campaign
 ```
 POST /api/campanhas/1/agendar/
 {
   "data_agendamento": "2023-12-31T10:00:00Z"
 }
 ```
+
+## Project Structure
+
+```
+django-react-email-marketing/
+├── backend/
+│   ├── email_app/          # Django project settings
+│   ├── marketing/          # Main Django app
+│   └── manage.py
+├── frontend/
+│   ├── src/                # React source code
+│   ├── public/             # Static files
+│   └── package.json
+└── README.md
+```
+
+## Technology Stack
+
+### Backend
+- Django 4.2+
+- Django REST Framework
+- SQLite (default) / PostgreSQL (production)
+
+### Frontend
+- React 18+
+- Axios for API calls
+- Bootstrap/Material-UI for styling
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support and questions, please open an issue on GitHub or contact the maintainer.
